@@ -30,7 +30,7 @@ const emits = defineEmits(['reply'])
         @reply="emits('reply', $event)"
         reply
       >
-        <div class="pt-5" v-if="review.children">
+        <div class="pt-5" v-if="review.children?.length">
           <div
             v-for="reviewReply, childIndex in review.children"
             :key="reviewReply.id"
