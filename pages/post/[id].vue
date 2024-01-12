@@ -1,23 +1,28 @@
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useRoute } from 'vue-router';
+
+const route = useRoute();
+
+const id = ref(route.params.id);
+
 </script>
 
 <template>
-  <div class="posts">
+  <div class="post-page">
     <post
-      v-for="i in 10"
-      :key="i"
-      :id="i + 1"
       img="https://picsum.photos/468/300"
-      :title="`Title number ${i + 1}`"
-      :text="`Text number ${i + 1}`.repeat(10)"
+      :title="`Title number ${id}`"
+      :text="`Text number ${id}`.repeat(10)"
       date="12.01.2024"
+      full
     />
   </div>
 </template>
 
 <style>
 
-.posts {
+.post-page {
   display: flex;
   flex-direction: column;
   gap: 30px;
